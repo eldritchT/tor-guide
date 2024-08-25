@@ -1,15 +1,31 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <style>
         body {
+            background-color: #313745;
+            color: white;
             font-family: 'Open Sans';
             font-size: 16px;
             padding-left: 10px;
         }
+        a {
+            color: white;
+        }
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 350,
+            'GRAD' 0,
+            'opsz' 24
+        }
         header {
             font-size: 24px;
         }
-        img {
+        .figure {
             max-width: 480px;
             height: auto;
             border-radius: 10px;
@@ -20,32 +36,63 @@
             padding: 15px;
             background-color: #eee;
             border-radius: 3px;
+            color: black;
             border-color: #333;
             border-width: 2px;
+        }
+        .icon {
+            display: inline;
+            vertical-align: middle;
+            /* width: 24px;
+            height: 24px; */
+        }
+        /* Media queries for mobile devices */
+        @media (max-width: 768px) {
+            body {
+                padding-left: 5px;
+                padding-right: 5px;
+                font-size: 14px;
+            }
+            header {
+                font-size: 20px;
+            }
+            .figure {
+                width: 100%;
+                margin: 10px 0;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        Восстановление работы Telegram
+        <span class="material-symbols-outlined icon">vpn_key</span> Восстановление работы Telegram при помощи Tor
     </header>
     <p>Недавно большинство российских регионов осталось без доступа в Telegram на несколько часов.</p>
-    <p><b>Быстрая настройка</b></p>
+    <p><b>Быстрая настройка</b> <span class="material-symbols-outlined icon">computer</span></p>
     <ol>
         <li>Скачайте <a href="https://www.torproject.org/ru/download/">Tor Browser для Windows</a></li>
-        <img src="res/download.jpg">
+        <img class="figure" src="res/download.jpg">
         <li>Запустите его и настройте мосты, если требуется. Подключитесь к сети Tor.</li>
-        <img src="res/connecting.jpg">
-        <li>Настройте прокси в Telegram: <a href="tg://socks?server=127.0.0.1&port=9150">клик</a></li>
-        <img src="res/proxysetup.jpg">
+        <img class="figure" src="res/connecting.jpg">
+        <li>Настройте прокси в Telegram: <a href="tg://socks?server=127.0.0.1&port=9150">клик</a>, или настройте вручную.</li>
+        <img class="figure" src="res/proxysetup.jpg">
     </ol>
     <p>Просим заметить, что прокси будет работать, только когда запущен Tor Daemon (tor.exe), который запускается и останавливается вместе с Tor Browser.</p>
-    <p><b>Настройка tor.exe в качестве системного сервиса</b></p>
+    <p><b>Настройка tor.exe в качестве системного сервиса</b> <span class="material-symbols-outlined icon">computer</span></p>
     <ol>
         <li>Скачайте <a href="https://www.torproject.org/ru/download/tor/">Tor для Windows</a> (не путать с браузером)</li>
-        <img src="res/expert.jpg">
-        <li>Добавьте в torrc эту строку: <pre>SOCKSPort 9150</pre></li>
+        <img class="figure" src="res/expert.jpg">
+        <li>Создайте torrc с этой строкой: <pre>SOCKSPort 9050</pre></li>
         <li>Запустите его с помощью команды <pre>tor.exe --service install --options -f "D:/путь/к/torrc"</pre></li>
-        <li>Проверьте, работает ли Tor: <pre>netstat -aon | findstr ":9150"</pre></li>
+        <li>Проверьте, работает ли Tor: <pre>netstat -aon | findstr ":9050"</pre></li>
+    </ol>
+    <p><b>Настройка Orbot в качестве прокси в Telegram</b> <span class="material-symbols-outlined icon">smartphone</span></p>
+    <ol>
+        <li>Скачайте <a href="https://orbot.app/en/">Orbot</a> из F-Droid или другого источника.</li>
+        <li>Запустите приложение и настройте его.</li>
+        <li>Перейдите на вкладку "Еще" и проверьте порт SOCKS.</li>
+        <img class="figure" src="res/orbot_socks.jpg">
+        <li>Настройте прокси в Telegram: <a href="tg://socks?server=127.0.0.1&port=9050">клик</a>, или настройте вручную.</li>
+        <img class="figure" src="res/android_setup.jpg">
     </ol>
 </body>
