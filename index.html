@@ -78,7 +78,7 @@
         <img class="figure" src="res/proxysetup.jpg">
     </ol>
     <p>Просим заметить, что прокси будет работать, только когда запущен Tor Daemon (tor.exe), который запускается и останавливается вместе с Tor Browser.</p>
-    <p><b>Настройка tor.exe в качестве системного сервиса</b> <span class="material-symbols-outlined icon">computer</span></p>
+    <p><b>Настройка tor.exe как службы</b> <span class="material-symbols-outlined icon">computer</span></p>
     <ol>
         <li>Скачайте <a href="https://www.torproject.org/ru/download/tor/">Tor для Windows</a> (не путать с браузером)</li>
         <img class="figure" src="res/expert.jpg">
@@ -86,13 +86,11 @@
         <li>Запустите его с помощью команды <pre>tor.exe --service install --options -f "D:/путь/к/torrc"</pre></li>
         <li>Проверьте, работает ли Tor: <pre>netstat -aon | findstr ":9050"</pre></li>
     </ol>
-    <p><b>Настройка Orbot в качестве прокси в Telegram</b> <span class="material-symbols-outlined icon">smartphone</span></p>
+    <p><b>Настройка Orbot прокси в Telegram</b> <span class="material-symbols-outlined icon">smartphone</span></p>
     <ol>
         <li>Скачайте <a href="https://orbot.app/en/">Orbot</a> из F-Droid или другого источника.</li>
         <li>Запустите приложение и настройте его.</li>
         <li>Перейдите на вкладку "Еще" и проверьте порт SOCKS.</li>
-        <img class="figure" src="res/orbot_socks.jpg">
         <li>Настройте прокси в Telegram: <a href="tg://socks?server=127.0.0.1&port=9050">клик</a>, или настройте вручную.</li>
-        <img class="figure" src="res/android_setup.jpg">
     </ol>
 </body>
