@@ -1,0 +1,51 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Open Sans';
+            font-size: 16px;
+            padding-left: 10px;
+        }
+        header {
+            font-size: 24px;
+        }
+        img {
+            max-width: 480px;
+            height: auto;
+            border-radius: 10px;
+            margin: 15px;
+            box-shadow: 0px 5px 10px #00000010;
+        }
+        pre {
+            padding: 15px;
+            background-color: #eee;
+            border-radius: 3px;
+            border-color: #333;
+            border-width: 2px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Восстановление работы Telegram
+    </header>
+    <p>Недавно большинство российских регионов осталось без доступа в Telegram на несколько часов.</p>
+    <p><b>Быстрая настройка</b></p>
+    <ol>
+        <li>Скачайте <a href="https://www.torproject.org/ru/download/">Tor Browser для Windows</a></li>
+        <img src="res/download.jpg">
+        <li>Запустите его и настройте мосты, если требуется. Подключитесь к сети Tor.</li>
+        <img src="res/connecting.jpg">
+        <li>Настройте прокси в Telegram: <a href="tg://socks?server=127.0.0.1&port=9150">клик</a></li>
+        <img src="res/proxysetup.jpg">
+    </ol>
+    <p>Просим заметить, что прокси будет работать, только когда запущен Tor Daemon (tor.exe), который запускается и останавливается вместе с Tor Browser.</p>
+    <p><b>Настройка tor.exe в качестве системного сервиса</b></p>
+    <ol>
+        <li>Скачайте <a href="https://www.torproject.org/ru/download/tor/">Tor для Windows</a> (не путать с браузером)</li>
+        <img src="res/expert.jpg">
+        <li>Добавьте в torrc эту строку: <pre>SOCKSPort 9150</pre></li>
+        <li>Запустите его с помощью команды <pre>tor.exe --service install --options -f "D:/путь/к/torrc"</pre></li>
+        <li>Проверьте, работает ли Tor: <pre>netstat -aon | findstr ":9150"</pre></li>
+    </ol>
+</body>
